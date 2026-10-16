@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Efstathios Xanthopoulos — Senior Data Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#131C22;
+    --paper:#1A252C;
+    --ink:#E4EAED;
+    --muted:#93A5AF;
+    --rule:#2E3E48;
+    --mark:#6FB093;
+  }
+
+  *{box-sizing:border-box}
+
+  html{-webkit-text-size-adjust:100%}
+
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"Newsreader",Georgia,"Times New Roman",serif;
+    font-weight:300;
+    font-size:19px;
+    line-height:1.68;
+    font-optical-sizing:auto;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .sheet{
+    --page-pad:clamp(1.5rem,6vw,3rem);
+    max-width:41rem;
+    margin:0 auto;
+    padding:0 var(--page-pad) 5rem;
+    background:var(--paper);
+    min-height:100vh;
+    overflow:hidden;
+  }
+
+  .hero-banner{
+    position:relative;
+    height:clamp(150px,29vw,195px);
+    margin:0 calc(-1 * var(--page-pad)) 1.35rem;
+    overflow:hidden;
+    background:var(--paper);
+  }
+
+  .hero-banner img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:58% center;
+    opacity:.82;
+    filter:saturate(.88) contrast(.96) brightness(.86);
+  }
+
+  .hero-banner::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+      linear-gradient(to bottom,
+        rgba(26,37,44,.02) 0%,
+        rgba(26,37,44,.06) 42%,
+        rgba(26,37,44,.45) 75%,
+        var(--paper) 100%
+      ),
+      linear-gradient(to right,
+        rgba(26,37,44,.28) 0%,
+        transparent 16%,
+        transparent 86%,
+        rgba(26,37,44,.18) 100%
+      );
+  }
+
+  .masthead{
+    display:flex;
+    align-items:flex-start;
+    gap:clamp(1.25rem,4vw,2rem);
+    position:relative;
+    z-index:1;
+  }
+
+  .portrait{
+    flex:0 0 auto;
+    width:clamp(84px,20vw,116px);
+    height:clamp(84px,20vw,116px);
+    border-radius:50%;
+    object-fit:cover;
+    filter:saturate(.9);
+  }
+
+  h1{
+    font-size:clamp(1.8rem,5vw,2.55rem);
+    font-weight:300;
+    line-height:1.08;
+    letter-spacing:-0.015em;
+    margin:0;
+  }
+
+  .role{
+    margin:.55rem 0 0;
+    font-size:1.33rem;
+    color:var(--muted);
+    font-weight:400;
+  }
+
+  .profile-summary{
+    margin:.42rem 0 0;
+    max-width:30rem;
+    color:var(--ink);
+    font-size:.88rem;
+    line-height:1.38;
+    font-weight:300;
+  }
+
+  .profile-summary .opportunity{
+    color:var(--mark);
+    font-weight:400;
+  }
+
+  .masthead-links{
+    display:flex;
+    align-items:center;
+    gap:.8rem;
+    margin-top:.65rem;
+  }
+
+  .masthead-links a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:1.35rem;
+    height:1.35rem;
+    padding:0;
+    color:var(--muted);
+    background-image:none;
+  }
+
+  .masthead-links a:hover{color:var(--ink)}
+
+  .masthead-links svg{
+    width:1.15rem;
+    height:1.15rem;
+    fill:currentColor;
+  }
+
+  /* The one graphic on the page: a point estimate inside its interval. */
+  .interval{
+    position:relative;
+    height:1px;
+    background:var(--rule);
+    margin:2.6rem 0 2.4rem;
+  }
+  .interval::before,
+  .interval::after{
+    content:"";
+    position:absolute;
+    top:-4px;
+    width:1px;
+    height:9px;
+    background:var(--rule);
+  }
+  .interval::before{left:12%}
+  .interval::after{left:58%}
+  .interval span{
+    position:absolute;
+    left:31%;
+    top:-3px;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--mark);
+  }
+
+  p{margin:0 0 1.2rem}
+  p:last-child{margin-bottom:0}
+
+  .intro{
+    max-width:36rem;
+  }
+
+  .intro p{
+    line-height:1.62;
+    margin-bottom:1.35rem;
+  }
+
+  .intro .lead{
+    font-size:1.18em;
+    line-height:1.45;
+    font-weight:400;
+    letter-spacing:-0.008em;
+    margin-bottom:1.5rem;
+    color:var(--ink);
+  }
+
+  section{margin-top:3.2rem}
+
+  h2{
+    font-size:1rem;
+    font-weight:500;
+    margin:0 0 1.1rem;
+    color:var(--muted);
+  }
+
+  ul{list-style:none;margin:0;padding:0}
+
+  li{
+    padding:.85rem 0;
+    border-top:1px solid var(--rule);
+  }
+  li:last-child{border-bottom:1px solid var(--rule)}
+
+  .item-title{display:block;font-weight:500}
+
+  .item-note{
+    display:block;
+    color:var(--muted);
+    font-size:.94rem;
+    font-style:italic;
+    margin-top:.15rem;
+  }
+
+  .item-note.upright{font-style:normal}
+
+  .item-note strong{
+    font-weight:600;
+    color:var(--ink);
+  }
+
+  .education-list li{
+    display:grid;
+    grid-template-columns:3.6rem 1fr;
+    gap:1rem;
+    align-items:start;
+    padding:1.05rem 0;
+  }
+
+  .edu-logo-wrap{
+    width:3.4rem;
+    height:3.4rem;
+    display:grid;
+    place-items:center;
+    border-radius:.55rem;
+    background:#F1F3F2;
+    overflow:hidden;
+    margin-top:.1rem;
+  }
+
+  .edu-logo{
+    max-width:3rem;
+    max-height:3rem;
+    object-fit:contain;
+  }
+
+  .edu-school{
+    display:block;
+    font-weight:500;
+    line-height:1.35;
+  }
+
+  .edu-degree{
+    display:block;
+    margin-top:.1rem;
+  }
+
+  .edu-years,
+  .edu-result{
+    display:block;
+    color:var(--muted);
+    font-size:.94rem;
+  }
+
+  .edu-years{margin-top:.4rem}
+  .edu-result{margin-top:.05rem}
+
+  a{
+    color:var(--ink);
+    text-decoration:none;
+    background-image:linear-gradient(var(--mark),var(--mark));
+    background-size:100% 1px;
+    background-repeat:no-repeat;
+    background-position:0 100%;
+    padding-bottom:1px;
+  }
+  a:hover{background-size:100% 2px}
+  a:focus-visible{
+    outline:2px solid var(--mark);
+    outline-offset:3px;
+    background-image:none;
+  }
+
+  .contact a{margin-right:1.4rem;display:inline-block}
+
+  footer{
+    margin-top:4rem;
+    padding-top:1.2rem;
+    border-top:1px solid var(--rule);
+    color:var(--muted);
+    font-size:.88rem;
+  }
+
+  @media (max-width:34rem){
+    body{font-size:18px}
+    .hero-banner{height:145px;margin-bottom:1.15rem}
+    .hero-banner img{object-position:62% center}
+    .masthead{gap:1rem}
+    .portrait{width:78px;height:78px}
+    h1{font-size:1.72rem}
+    .role{font-size:.98rem}
+    .profile-summary{font-size:.82rem;line-height:1.35}
+    .education-list li{grid-template-columns:3.1rem 1fr;gap:.8rem}
+    .edu-logo-wrap{width:2.9rem;height:2.9rem}
+    .edu-logo{max-width:2.55rem;max-height:2.55rem}
+    .contact a{display:block;margin:0 0 .6rem}
+  }
+</style>
+</head>
+<body>
+<main class="sheet">
+
+  <div class="hero-banner" aria-hidden="true">
+    <img src="banner.jpg" alt="">
+  </div>
+
+  <div class="masthead">
+    <img class="portrait" src="portrait.png" alt="Efstathios Xanthopoulos">
+    <div>
+      <h1>Efstathios Xanthopoulos</h1>
+      <p class="role">Senior Data Scientist — London</p>
+      <p class="profile-summary">Python, ML & Applied GenAI <span aria-hidden="true">|</span> Built production analytics platforms and operational LLM workflows <span aria-hidden="true">|</span> <span class="opportunity">Open to new opportunities</span></p>
+      <div class="masthead-links" aria-label="Contact links">
+        <a href="https://www.linkedin.com/in/exanthopoulos/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6.5 0h3.83v1.64h.05c.53-1.01 1.84-2.08 3.79-2.08 4.05 0 4.8 2.67 4.8 6.14V21h-4v-5.59c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.15 1.45-2.15 2.95V21h-4V9Z"/></svg>
+        </a>
+        <a href="https://github.com/efsxanth" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.34-1.75-1.34-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0 1 12 6.5c1.02 0 2.04.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.3c0 .32.22.7.82.58A12 12 0 0 0 12 .7Z"/></svg>
+        </a>
+        <a href="https://scholar.google.com/citations?user=xV2qQ6cAAAAJ&amp;hl=el" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 24a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 8a8 8 0 0 1 7.162 5.44L24 9.5 12 0Z"/></svg>
+        </a>
+        <a href="mailto:efs.xanthopoulos@gmail.com" aria-label="Email efs.xanthopoulos@gmail.com" title="efs.xanthopoulos@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm9 7.1L3.8 7h16.4L12 12.1ZM3 17h18V9.3l-8.47 5.27a1 1 0 0 1-1.06 0L3 9.3V17Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="interval"><span></span></div>
+
+  <div class="intro">
+    <p class="lead">I build data science and AI systems that turn complex, large-scale data into decisions people can actually use.</p>
+
+    <p>Over five and a half years at DNA Electronics, I progressed from Data Analyst to Senior Data Scientist. I initiated a Python-based analytics platform as my own prototype and developed it into production software used daily across UK and US teams. It replaced substantial manual effort with reproducible, Jenkins-orchestrated workflows and gave stakeholders a configurable way to explore different analytical scenarios without needing bespoke code for every question.</p>
+
+    <p>The platform also became a common analytical framework for the organisation. I developed and introduced statistical methods for interpreting very large datasets, including shifting practice away from significance-led conclusions where sample size could make trivial effects look important, toward magnitude-led interpretation using effect sizes. I also developed methods for modelling the relationship between signal quality and downstream accuracy, helping identify diminishing returns and support experimental decision-making.</p>
+
+    <p>As the platform matured, I remained responsible for maintaining it, integrating new requirements and improving its performance and usability. I communicated every major release across the company, produced explanatory documentation and slide decks, and ran regular sessions with technical and non-technical stakeholders so that people understood not only how to use the platform, but how to interpret its data and outputs correctly.</p>
+
+    <p>Most recently, I extended this work into applied AI. I created an Interpretation Framework that translated domain-expert reasoning, statistical evidence and causality constraints into explicit rules, then used it to design and operationalise an LLM-driven Microsoft Copilot agent for automated interpretation. I evaluated prompt and instruction iterations against known analytical cases, testing correctness, consistency, rule adherence and unsupported conclusions, and refined the agent’s knowledge, guardrails and workflow in response to observed failure modes. After release, the capability reduced expert interpretation time from around two hours to under ten minutes.</p>
+
+    <p>Earlier in my time at DNAe, while still a Data Analyst, I led a deep-learning R&amp;D project for time-series (signal) classification. I designed and trained a 1D fully convolutional network on a class-balanced 2.44M-signal dataset drawn from ~13.8M signals (11:1 imbalance). On entirely held-out experimental datasets, it reached ~92% accuracy on six of seven targets, exceeding the production pipeline on one.</p>
+
+    <p>Alongside the technical work, I ran internal training on software engineering, concurrency and statistics, reviewed code and analytical work, onboarded new team members and designed the technical assessment used to screen data science candidates.</p>
+
+    <p>Outside my technical career, I founded Sevasteia – Pontic Greek Society of London and led it from initial concept to registered charity, where I serve as one of three founding trustees.</p>
+  </div>
+
+  <section>
+    <h2>Independent Projects</h2>
+    <ul>
+      <li>
+        <a class="item-title" href="https://efsxanth.github.io/data-analytics-pipeline/">Data Analytics Pipeline</a>
+        <span class="item-note">Independently developed an end-to-end Python analytics and AI pipeline for comparing experimental conditions across repeated runs. Built with Polars, statistical modelling, effect-size estimation, bootstrap confidence intervals, correlation analysis, and multivariable regression. Integrated <strong>GroqCloud</strong> LLM (openai/gpt-oss-120b) via <strong>LangChain</strong> and Pydantic to generate evidence-grounded interpretations of four research questions, with numerical citation validation and scientific-review safeguards. Automated testing and HTML report deployment through GitHub Actions, with CI across Windows, Linux, and three Python versions.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <ul class="education-list">
+      <li>
+        <span class="edu-logo-wrap" aria-hidden="true">
+          <img class="edu-logo" src="ntua_logo.svg" alt="">
+        </span>
+        <div>
+          <span class="edu-school">National Technical University of Athens</span>
+          <span class="edu-degree">M.Eng. Mechanical Engineering (5-year)</span>
+          <span class="edu-years">2010–2015</span>
+          <span class="edu-result">7.88/10, equivalent to UK 2:1. Ranked 28th of 194.</span>
+        </div>
+      </li>
+      <li>
+        <span class="edu-logo-wrap" aria-hidden="true">
+          <img class="edu-logo" src="aspete_logo.png" alt="">
+        </span>
+        <div>
+          <span class="edu-school">School of Pedagogical and Technological Education</span>
+          <span class="edu-degree">B.Sc. Mechanical Engineering Educator (4-year)</span>
+          <span class="edu-years">2006–2010</span>
+          <span class="edu-result">8.05/10, equivalent to UK 2:1. Ranked 1st of 42.</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+  
+  <section>
+  <h2>Volunteering</h2>
+  <ul>
+    <li>
+      <a class="item-title" href="https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5282644/contact-information?_uk_gov_ccew_onereg_charitydetails_web_portlet_CharityDetailsPortlet_organisationNumber=5282644">Sevasteia — Pontic Greek Society of London</a>
+      <div class="item-note upright">
+        <div>• Founded London’s first Pontic Greek society and led it from concept to registration as a Charitable Incorporated Organisation (Charity No. 1216903), establishing its governance framework and founding board; serve as one of three founding trustees.</div>
+        <div>• Lead the society’s digital presence and public programme: designed and maintain its website, and run educational campaigns and a public-history series with original illustration.</div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+
+
+
+</main>
+</body>
+</html>
